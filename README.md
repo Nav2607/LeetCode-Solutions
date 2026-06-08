@@ -1,4 +1,4 @@
-# 🧩 LeetCode Practice Workspace
+# LeetCode Practice Workspace
 
 # | Problem | Language(s) | Accepted
 --- | --- | --- | ---
