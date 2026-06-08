@@ -47,13 +47,13 @@ jobs:
               langs = ', '.join(sorted(list(set(langs)))) or 'Unknown'
               
               date_str = datetime.today().strftime('%Y-%m-%d')
-              # Added explicit newline character at the end of the row string
-              table_lines.append(f'{int(num)} | [{clean_name}](./{folder}) | {langs} | {date_str}\n')
+              # Keep the row string clean without any internal newlines
+              table_lines.append(f'{int(num)} | [{clean_name}](./{folder}) | {langs} | {date_str}')
 
           with open('README.md', 'w') as f:
-              f.write('# LeetCode Practice Workspace\n\n')
-              for line in table_lines:
-                  f.write(line + '\n')
+              f.write('# 🧩 LeetCode Practice Workspace\n\n')
+              # Join the lines with a single uniform newline character
+              f.write('\n'.join(table_lines) + '\n')
           EOF
           python3 update_readme.py
 
