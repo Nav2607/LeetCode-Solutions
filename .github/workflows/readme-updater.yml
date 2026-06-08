@@ -29,15 +29,17 @@ jobs:
           folders = [f for f in os.listdir('.') if os.path.isdir(f) and re.match(r'^\d+-', f)]
           folders.sort(key=lambda x: int(x.split('-')[0]))
 
+          # Set up the exact header template you requested
           table_lines = [
-              '# | Problem | Language(s) | Accepted',
-              '--- | --- | --- | ---'
+              "| # | Title | Language(s) | Difficulty | Date |",
+              "|---|---------|-------------|----------|-------|"
           ]
           
           for folder in folders:
               num, name = folder.split('-', 1)
               clean_name = name.replace('-', ' ').title()
               
+              # Find code files inside the folder
               langs = []
               for root, _, files in os.walk(folder):
                   for file in files:
@@ -46,13 +48,23 @@ jobs:
                       elif file.endswith('.c'): langs.append('C')
               langs = ', '.join(sorted(list(set(langs)))) or 'Unknown'
               
-              date_str = datetime.today().strftime('%Y-%m-%d')
-              # Keep the row string clean without any internal newlines
-              table_lines.append(f'{int(num)} | [{clean_name}](./{folder}) | {langs} | {date_str}')
+              # Extract difficulty from the sub-folder's README markdown
+              difficulty = 'Unknown'
+              sub_readme_path = os.path.join(folder, 'README.md')
+              if os.path.exists(sub_readme_path):
+                  with open(sub_readme_path, 'r', encoding='utf-8') as rf:
+                      content = rf.read()
+                      if 'Easy' in content: difficulty = 'Easy'
+                      elif 'Medium' in content: difficulty = 'Medium'
+                      elif 'Hard' in content: difficulty = 'Hard'
 
-          with open('README.md', 'w') as f:
-              f.write('# 🧩 LeetCode Practice Workspace\n\n')
-              # Join the lines with a single uniform newline character
+              date_str = datetime.today().strftime('%Y-%m-%d')
+              
+              # Build the native table row format
+              table_lines.append(f"| {int(num)} | [{clean_name}](./{folder}) | {langs} | {difficulty} | {date_str} |")
+
+          with open('README.md', 'w', encoding='utf-8') as f:
+              f.write('# LeetCode Practice Workspace\n\n\n')
               f.write('\n'.join(table_lines) + '\n')
           EOF
           python3 update_readme.py
@@ -62,4 +74,4 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add README.md
-          git diff --quiet && git diff --staged --quiet || (git commit -m 'Automated README table update' && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m 'Upgrade table layout to grid format' && git push)
