@@ -1,0 +1,61 @@
+name: Update LeetCode Table
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'README.md'
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-python3: '3.x'
+
+      - name: Generate Table
+        run: |
+          python3 -c "
+          import os, re
+          from datetime import datetime
+
+          folders = [f for f in os.listdir('.') if os.path.isdir(f) and re.match(r'^\d+-', f)]
+          folders.sort(key=lambda x: int(x.split('-')[0]))
+
+          table_lines = ['# | Problem | Language(s) | Accepted', '--- | --- | --- | ---']
+          
+          for folder in folders:
+              num, name = folder.split('-', 1)
+              clean_name = name.replace('-', ' ').title()
+              
+              # Detect languages inside the folder
+              langs = []
+              for root, _, files in os.walk(folder):
+                  for file in files:
+                      if file.endswith('.java'): langs.append('Java')
+                      elif file.endswith('.py'): langs.append('Python')
+                      elif file.endswith('.c'): langs.append('C')
+              langs = ', '.join(sorted(list(set(langs)))) or 'Unknown'
+              
+              # Mocking git commit date for simplicity or using current date
+              date_str = datetime.today().strftime('%Y-%m-%d')
+              
+              table_lines.append(f'{int(num)} | [{clean_name}](./{folder}) | {langs} | {date_str}')
+
+          readme_content = '# 🧩 LeetCode Practice Workspace\n\n' + '\n'.join(table_lines) + '\n'
+          with open('README.md', 'w') as f:
+              f.write(readme_content)
+          "
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add README.md
+          git diff --quiet && git diff --staged --quiet || (git commit -m 'Automated README table update' && git push)
