@@ -21,7 +21,7 @@ jobs:
           python-version: '3.x'
 
       - name: Wait for LeetHub to finish
-        run: sleep 10
+        run: sleep 15
 
       - name: Pull latest changes
         run: git pull origin main --rebase || true
@@ -34,7 +34,6 @@ jobs:
           folders = [f for f in os.listdir('.') if os.path.isdir(f) and re.match(r'^\d+-', f)]
           folders.sort(key=lambda x: int(x.split('-')[0]))
 
-          # Set up the new header without the Date column
           table_lines = [
               "| # | Title | Language(s) | Difficulty |",
               "|---|---------|-------------|----------|"
@@ -61,9 +60,9 @@ jobs:
                       elif 'Medium' in content: difficulty = 'Medium'
                       elif 'Hard' in content: difficulty = 'Hard'
               
-              # Row layout without the date variable
               table_lines.append(f"| {int(num)} | [{clean_name}](./{folder}) | {langs} | {difficulty} |")
 
+          # Write out the content cleanly, guaranteeing NO topic sections exist
           with open('README.md', 'w', encoding='utf-8') as f:
               f.write('# LeetCode Practice Workspace\n\n')
               f.write('\n'.join(table_lines) + '\n')
@@ -75,4 +74,4 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add README.md
-          git diff --quiet && git diff --staged --quiet || (git commit -m 'Automate clean table without dates' && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m 'Purge LeetCode topics section' && git push)
