@@ -20,26 +20,30 @@ jobs:
         with:
           python-version: '3.x'
 
+      - name: Wait for LeetHub to finish
+        run: sleep 10
+
+      - name: Pull latest changes
+        run: git pull origin main --rebase || true
+
       - name: Generate Table
         run: |
           cat << 'EOF' > update_readme.py
           import os, re
-          from datetime import datetime
 
           folders = [f for f in os.listdir('.') if os.path.isdir(f) and re.match(r'^\d+-', f)]
           folders.sort(key=lambda x: int(x.split('-')[0]))
 
-          # Set up the exact header template you requested
+          # Set up the new header without the Date column
           table_lines = [
-              "| # | Title | Language(s) | Difficulty | Date |",
-              "|---|---------|-------------|----------|-------|"
+              "| # | Title | Language(s) | Difficulty |",
+              "|---|---------|-------------|----------|"
           ]
           
           for folder in folders:
               num, name = folder.split('-', 1)
               clean_name = name.replace('-', ' ').title()
               
-              # Find code files inside the folder
               langs = []
               for root, _, files in os.walk(folder):
                   for file in files:
@@ -48,7 +52,6 @@ jobs:
                       elif file.endswith('.c'): langs.append('C')
               langs = ', '.join(sorted(list(set(langs)))) or 'Unknown'
               
-              # Extract difficulty from the sub-folder's README markdown
               difficulty = 'Unknown'
               sub_readme_path = os.path.join(folder, 'README.md')
               if os.path.exists(sub_readme_path):
@@ -57,14 +60,12 @@ jobs:
                       if 'Easy' in content: difficulty = 'Easy'
                       elif 'Medium' in content: difficulty = 'Medium'
                       elif 'Hard' in content: difficulty = 'Hard'
-
-              date_str = datetime.today().strftime('%Y-%m-%d')
               
-              # Build the native table row format
-              table_lines.append(f"| {int(num)} | [{clean_name}](./{folder}) | {langs} | {difficulty} | {date_str} |")
+              # Row layout without the date variable
+              table_lines.append(f"| {int(num)} | [{clean_name}](./{folder}) | {langs} | {difficulty} |")
 
           with open('README.md', 'w', encoding='utf-8') as f:
-              f.write('# LeetCode Practice Workspace\n\n\n')
+              f.write('# LeetCode Practice Workspace\n\n')
               f.write('\n'.join(table_lines) + '\n')
           EOF
           python3 update_readme.py
@@ -74,4 +75,4 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add README.md
-          git diff --quiet && git diff --staged --quiet || (git commit -m 'Upgrade table layout to grid format' && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m 'Automate clean table without dates' && git push)
