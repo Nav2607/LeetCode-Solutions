@@ -8,3 +8,15 @@
 | 1480 | [Running Sum Of 1D Array](./1480-running-sum-of-1d-array) | Python | Easy |
 | 1672 | [Richest Customer Wealth](./1672-richest-customer-wealth) | C | Easy |
 | 2235 | [Add Two Integers](./2235-add-two-integers) | Python | Easy |
+
+<!---LeetCode Topics Start-->
+# LeetCode Topics
+## Linked List
+|  |
+| ------- |
+| [0876-middle-of-the-linked-list](https://github.com/Nav2607/LeetCode-Solutions/tree/master/0876-middle-of-the-linked-list) |
+## Two Pointers
+|  |
+| ------- |
+| [0876-middle-of-the-linked-list](https://github.com/Nav2607/LeetCode-Solutions/tree/master/0876-middle-of-the-linked-list) |
+<!---LeetCode Topics End-->
