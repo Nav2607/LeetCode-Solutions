@@ -11,3 +11,19 @@ Hello! This is a place where my LeetCode submissions are!
 | 1480 | [Running Sum Of 1D Array](./1480-running-sum-of-1d-array) | Python | Easy |
 | 1672 | [Richest Customer Wealth](./1672-richest-customer-wealth) | C | Easy |
 | 2235 | [Add Two Integers](./2235-add-two-integers) | Python | Easy |
+
+<!---LeetCode Topics Start-->
+# LeetCode Topics
+## Hash Table
+|  |
+| ------- |
+| [0383-ransom-note](https://github.com/Nav2607/LeetCode-Solutions/tree/master/0383-ransom-note) |
+## String
+|  |
+| ------- |
+| [0383-ransom-note](https://github.com/Nav2607/LeetCode-Solutions/tree/master/0383-ransom-note) |
+## Counting
+|  |
+| ------- |
+| [0383-ransom-note](https://github.com/Nav2607/LeetCode-Solutions/tree/master/0383-ransom-note) |
+<!---LeetCode Topics End-->
