@@ -1,4 +1,6 @@
-# LeetCode Practice Workspace
+# LeetCode Practice
+
+Hello! This is a place where my LeetCode submissions are!
 
 | # | Title | Language(s) | Difficulty |
 |---|---------|-------------|----------|
