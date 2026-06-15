@@ -11,15 +11,3 @@
 | 1672 | [Richest Customer Wealth](./1672-richest-customer-wealth) | C | Easy |
 | 1929 | [Concatenation Of Array](./1929-concatenation-of-array) | Python | Easy |
 | 2235 | [Add Two Integers](./2235-add-two-integers) | Python | Easy |
-
-<!---LeetCode Topics Start-->
-# LeetCode Topics
-## Array
-|  |
-| ------- |
-| [1929-concatenation-of-array](https://github.com/Nav2607/LeetCode-Solutions/tree/master/1929-concatenation-of-array) |
-## Simulation
-|  |
-| ------- |
-| [1929-concatenation-of-array](https://github.com/Nav2607/LeetCode-Solutions/tree/master/1929-concatenation-of-array) |
-<!---LeetCode Topics End-->
