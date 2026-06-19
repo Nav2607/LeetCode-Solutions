@@ -9,28 +9,9 @@
 | 645 | [Set Mismatch](./0645-set-mismatch) | Python | Easy |
 | 876 | [Middle Of The Linked List](./0876-middle-of-the-linked-list) | Python | Easy |
 | 1342 | [Number Of Steps To Reduce A Number To Zero](./1342-number-of-steps-to-reduce-a-number-to-zero) | C | Easy |
+| 1365 | [How Many Numbers Are Smaller Than The Current Number](./1365-how-many-numbers-are-smaller-than-the-current-number) | Java | Easy |
 | 1470 | [Shuffle The Array](./1470-shuffle-the-array) | Python | Easy |
 | 1480 | [Running Sum Of 1D Array](./1480-running-sum-of-1d-array) | Python | Easy |
 | 1672 | [Richest Customer Wealth](./1672-richest-customer-wealth) | C | Easy |
 | 1929 | [Concatenation Of Array](./1929-concatenation-of-array) | Python | Easy |
 | 2235 | [Add Two Integers](./2235-add-two-integers) | Python | Easy |
-
-<!---LeetCode Topics Start-->
-# LeetCode Topics
-## Array
-|  |
-| ------- |
-| [1365-how-many-numbers-are-smaller-than-the-current-number](https://github.com/Nav2607/LeetCode-Solutions/tree/master/1365-how-many-numbers-are-smaller-than-the-current-number) |
-## Hash Table
-|  |
-| ------- |
-| [1365-how-many-numbers-are-smaller-than-the-current-number](https://github.com/Nav2607/LeetCode-Solutions/tree/master/1365-how-many-numbers-are-smaller-than-the-current-number) |
-## Sorting
-|  |
-| ------- |
-| [1365-how-many-numbers-are-smaller-than-the-current-number](https://github.com/Nav2607/LeetCode-Solutions/tree/master/1365-how-many-numbers-are-smaller-than-the-current-number) |
-## Counting Sort
-|  |
-| ------- |
-| [1365-how-many-numbers-are-smaller-than-the-current-number](https://github.com/Nav2607/LeetCode-Solutions/tree/master/1365-how-many-numbers-are-smaller-than-the-current-number) |
-<!---LeetCode Topics End-->
