@@ -5,6 +5,7 @@
 | 1 | [Two Sum](./0001-two-sum) | Java | Easy |
 | 383 | [Ransom Note](./0383-ransom-note) | Python | Easy |
 | 412 | [Fizz Buzz](./0412-fizz-buzz) | Python | Easy |
+| 448 | [Find All Numbers Disappeared In An Array](./0448-find-all-numbers-disappeared-in-an-array) | Python | Easy |
 | 485 | [Max Consecutive Ones](./0485-max-consecutive-ones) | Python | Easy |
 | 645 | [Set Mismatch](./0645-set-mismatch) | Python | Easy |
 | 876 | [Middle Of The Linked List](./0876-middle-of-the-linked-list) | Python | Easy |
@@ -15,15 +16,3 @@
 | 1672 | [Richest Customer Wealth](./1672-richest-customer-wealth) | C | Easy |
 | 1929 | [Concatenation Of Array](./1929-concatenation-of-array) | Python | Easy |
 | 2235 | [Add Two Integers](./2235-add-two-integers) | Python | Easy |
-
-<!---LeetCode Topics Start-->
-# LeetCode Topics
-## Array
-|  |
-| ------- |
-| [0448-find-all-numbers-disappeared-in-an-array](https://github.com/Nav2607/LeetCode-Solutions/tree/master/0448-find-all-numbers-disappeared-in-an-array) |
-## Hash Table
-|  |
-| ------- |
-| [0448-find-all-numbers-disappeared-in-an-array](https://github.com/Nav2607/LeetCode-Solutions/tree/master/0448-find-all-numbers-disappeared-in-an-array) |
-<!---LeetCode Topics End-->
